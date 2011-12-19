@@ -6,7 +6,7 @@
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>Horsefire java helper code</name>
-	
+
 	<scm>
 		<connection>scm:git:git@github.com:stevearm/java-util.git</connection>
 		<url>scm:git:git@github.com:stevearm/java-util.git</url>
@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>com.horsefire.maven</groupId>
 		<artifactId>common-pom</artifactId>
-		<version>0.3</version>
+		<version>0.4</version>
 	</parent>
 
 	<properties>
@@ -28,25 +28,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>jar</goal>
-							<goal>test-jar</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
-
 	</build>
 
 	<dependencies>
@@ -88,4 +75,20 @@
 		</dependency>
 
 	</dependencies>
+	
+	<repositories>
+		<repository>
+			<id>horsefire-maven-read-only</id>
+			<url>http://horsefire.s3.amazonaws.com/maven</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>horsefire-maven</id>
+			<name>Horsefire repository</name>
+			<url>s3://horsefire/maven</url>
+		</repository>
+	</distributionManagement>
+
 </project>
