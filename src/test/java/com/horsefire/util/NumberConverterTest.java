@@ -36,4 +36,21 @@ public class NumberConverterTest extends TestCase {
 			assertEquals(TEST_VALUE_BYTES[i], result2[i]);
 		}
 	}
+
+	@Test
+	public void testInvalidHexStringToBytesConversion() {
+		NumberConverter converter = new NumberConverter();
+		try {
+			converter.toByteArray("4h");
+			fail("Should have thrown an exception");
+		} catch (Exception e) {
+			// Expected
+		}
+		try {
+			converter.toByteArray("h4");
+			fail("Should have thrown an exception");
+		} catch (Exception e) {
+			// Expected
+		}
+	}
 }

@@ -27,8 +27,13 @@ public class NumberConverter {
 		int len = hexString.length();
 		byte[] data = new byte[len / 2];
 		for (int i = 0; i < len; i += 2) {
-			data[i / 2] = (byte) ((Character.digit(hexString.charAt(i), 16) << 4) + Character
-					.digit(hexString.charAt(i + 1), 16));
+			int upper = Character.digit(hexString.charAt(i), 16);
+			int lower = Character.digit(hexString.charAt(i + 1), 16);
+			if (upper == -1 || lower == -1) {
+				throw new NumberFormatException(hexString
+						+ " is not a hex string");
+			}
+			data[i / 2] = (byte) ((upper << 4) + lower);
 		}
 		return data;
 	}
