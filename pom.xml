@@ -3,12 +3,12 @@
     <groupId>com.horsefire</groupId>
     <artifactId>util</artifactId>
     <packaging>jar</packaging>
-    <version>1.3</version>
+    <version>1.4-SNAPSHOT</version>
     <name>Horsefire java helper code</name>
 
     <scm>
         <connection>scm:git:git@github.com:stevearm/java-util.git</connection>
-        <tag>util-1.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <parent>
